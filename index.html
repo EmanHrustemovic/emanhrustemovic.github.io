@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eman Hrustemović — ML Engineer</title>
+<meta name="description" content="I ship models, then I try to break them before anyone else does. ML pipelines for NLP classification, built and evaluated honestly.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23F6F5F1'/><text x='50' y='68' font-family='sans-serif' font-weight='700' font-size='44' fill='%232F4858' text-anchor='middle'>EH</text></svg>">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root {
+    --ink: #1B1F1D;
+    --paper: #F6F5F1;
+    --primary: #2F4858;
+    --accent: #3E7C59;
+    --line: #D9D6CC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', sans-serif;
+    line-height: 1.6;
+  }
+
+  a { color: var(--primary); }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    z-index: 10;
+  }
+
+  nav .brand {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--primary);
+    text-decoration: none;
+  }
+
+  nav .links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    text-decoration: none;
+    color: var(--ink);
+    margin-left: 28px;
+    letter-spacing: 0.3px;
+  }
+
+  nav .links a:hover { color: var(--accent); }
+
+  /* ---------- HERO ---------- */
+  header.hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 24px;
+    background-image: url('images/hero_final.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .mark {
+    width: 64px;
+    height: 64px;
+    border: 2px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--primary);
+    margin-bottom: 28px;
+    background: var(--paper);
+  }
+
+  header.hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5vw, 46px);
+    letter-spacing: -0.5px;
+    margin-bottom: 16px;
+    max-width: 700px;
+  }
+
+  header.hero p.sub {
+    font-size: 17px;
+    color: var(--primary);
+    max-width: 480px;
+    margin-bottom: 32px;
+  }
+
+  .cta-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+
+  .btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    padding: 12px 24px;
+    border: 1.5px solid var(--primary);
+    color: var(--primary);
+    background: var(--paper);
+    transition: all 0.15s ease;
+  }
+
+  .btn.primary { background: var(--primary); color: var(--paper); }
+  .btn:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+
+  /* ---------- SECTIONS ---------- */
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 90px 24px;
+    scroll-margin-top: 70px;
+  }
+
+  section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* ---------- CASE STUDY ---------- */
+  .case {
+    border: 1px solid var(--line);
+    background: white;
+    margin-bottom: 48px;
+    overflow: hidden;
+  }
+
+  .case img {
+    width: 100%;
+    display: block;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .case-body { padding: 32px; }
+
+  .case-body h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+
+  .case-body .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .case-body h4 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary);
+    margin-top: 20px;
+    margin-bottom: 6px;
+  }
+
+  .case-body p { font-size: 15px; }
+
+  .case-footer {
+    padding: 18px 32px;
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-row {
+    display: flex;
+    gap: 36px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .about-row img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+    flex-shrink: 0;
+  }
+
+  .about-row .text { flex: 1; min-width: 260px; }
+
+  /* ---------- CONTACT ---------- */
+  .contact-box {
+    border: 1px solid var(--line);
+    background: white;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .contact-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #9a9a90;
+    border-top: 1px solid var(--line);
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <a class="brand" href="#top">EH</a>
+    <div class="links">
+      <a href="#case-studies">Case Studies</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="mark">EH</div>
+    <h1>I ship models, then I try to break them before anyone else does.</h1>
+    <p class="sub">ML pipelines for NLP classification — published research and a working FlyRank capstone are the proof.</p>
+    <div class="cta-row">
+      <a class="btn primary" href="#case-studies">View Case Studies</a>
+      <a class="btn" href="https://github.com/EmanHrustemovic" target="_blank">GitHub</a>
+    </div>
+  </header>
+
+  <section id="case-studies">
+    <span class="eyebrow">Proof</span>
+    <h2>Case Studies</h2>
+
+    <div class="case">
+      <img src="images/rad.png" alt="Title page of the published sentiment analysis research paper">
+      <div class="case-body">
+        <span class="tag">Published Research</span>
+        <h3>Sentiment Analysis on 568,000+ Reviews</h3>
+        <h4>The Problem</h4>
+        <p>We wanted to show how comments under an article actually affect whether someone reading it, as a future buyer, decides to purchase.</p>
+        <h4>What I Did</h4>
+        <p>I handled the ML side of the research — the research questions, the models, the paper — under my professor's supervision. The hardest part was class imbalance: one class (5-star) dominated the data. We tackled it with a plain baseline first, then SMOTE, then class weighting, comparing results across all three instead of picking one blind.</p>
+        <h4>What Came Of It</h4>
+        <p>Raw text alone wasn't enough to predict outcomes reliably — that was the real finding, and it's a more honest one than pretending a single model solved it cleanly.</p>
+      </div>
+      <div class="case-footer">
+        Published, International Burch University — Sarajevo, Bosnia and Herzegovina
+      </div>
+    </div>
+
+    <div class="case">
+      <img src="images/comparison.png" alt="Model versus baseline comparison table showing Precision at 50 results">
+      <div class="case-body">
+        <span class="tag">FlyRank ML Internship</span>
+        <h3>Content Decline Scoring</h3>
+        <h4>The Problem</h4>
+        <p>FlyRank needed a way to automatically flag which pages were losing search ranking, instead of someone manually reviewing thousands of pages by hand.</p>
+        <h4>What I Did</h4>
+        <p>I framed one page-month as one row, then built a simple baseline first: flag a page if its click-through rate was far below what its search position would predict. Before trusting that, I tested it against two signals — content staleness turned out useless, while CTR-vs-position held up. I trained a Logistic Regression model on top of that, then re-ran everything under a stricter, client-grouped split to make sure I wasn't fooling myself.</p>
+        <h4>What Came Of It</h4>
+        <p>The model beat the simple rule — Precision@50 went from 0.70 to 0.96, meaning almost every page it flagged as declining actually was. The hardest part wasn't the code, it was trusting which model was actually the right one instead of the one I assumed would work going in.</p>
+      </div>
+      <div class="case-footer">
+        <a href="https://github.com/EmanHrustemovic/FlyRank-AI-Intership-ML-Track-" target="_blank">View repo</a> · Full research paper in progress
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <span class="eyebrow">Who's Behind This</span>
+    <h2>About</h2>
+    <div class="about-row">
+      <img src="images/ja.jpg" alt="Photo of Eman Hrustemović">
+      <div class="text">
+        <p>I'm a Master's student moving into ML engineering — the kind that builds the model, then checks it harder than anyone else will. My CV and LinkedIn show the research; this is where you see how I actually think through a problem, choose a model, and report the honest result instead of the flattering one.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <span class="eyebrow">Next Step</span>
+    <h2>Contact</h2>
+    <div class="contact-box">
+      <p>Review my GitHub, then reach out — I'm happy to walk through any decision in either project.</p>
+      <div class="contact-links">
+        <a class="btn primary" href="mailto:emanhrustemovic6@gmail.com">Email Me</a>
+        <a class="btn" href="https://github.com/EmanHrustemovic" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Built with plain HTML/CSS, deployed on GitHub Pages &middot; Eman Hrustemović, 2026
+  </footer>
+
+</body>
+</html>
