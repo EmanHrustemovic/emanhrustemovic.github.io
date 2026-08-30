@@ -350,6 +350,12 @@
   <footer>
     Built with plain HTML/CSS, deployed on GitHub Pages &middot; Eman Hrustemović, 2026
   </footer>
-
+  <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+      const btn = this.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+    });
+  </script>
 </body>
 </html>
