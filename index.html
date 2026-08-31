@@ -20,7 +20,7 @@
     --ink: #1B1F1D;
     --paper: #F6F5F1;
     --primary: #2F4858;
-    --accent: #3E7C59;
+    --accent: #2E5E43; /* Pojačan kontrast sa WCAG standardom */
     --line: #D9D6CC;
   }
 
@@ -248,7 +248,7 @@
     padding: 40px 24px;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
-    color: #9a9a90;
+    color: #595950;
     border-top: 1px solid var(--line);
   }
 </style>
@@ -267,89 +267,96 @@
   <header class="hero" id="top">
     <div class="mark">EH</div>
     <h1>I ship models, then I try to break them before anyone else does.</h1>
-    <p class="sub">I build machine learning models that predict and analyze data  — published research and a working AI project are the proof.</p>
+    <p class="sub">I build machine learning models that predict and analyze data — published research and a working AI project are the proof.</p>
     <div class="cta-row">
       <a class="btn primary" href="#case-studies">View Case Studies</a>
       <a class="btn" href="https://github.com/EmanHrustemovic" target="_blank">GitHub</a>
     </div>
   </header>
 
-  <section id="case-studies">
-    <span class="eyebrow">Proof</span>
-    <h2>Case Studies</h2>
+  <!-- FIX 2: Početak <main> taga koji obavija primarni sadržaj -->
+  <main>
+    <section id="case-studies">
+      <span class="eyebrow">Proof</span>
+      <h2>Case Studies</h2>
 
-    <div class="case">
-      <img src="images/rad.png" alt="Title page of the published sentiment analysis research paper">
-      <div class="case-body">
-        <span class="tag">Published Research</span>
-        <h3>Sentiment Analysis on 568,000+ Reviews</h3>
-        <h4>The Problem</h4>
-        <p>We wanted to show how comments under an article actually affect whether someone reading it, as a future buyer, decides to purchase.</p>
-        <h4>What I Did</h4>
-        <p>I handled the ML side of the research — the research questions, the models, the paper — under my professor's supervision. The hardest part was class imbalance: one class (5-star) dominated the data. We tackled it with a plain baseline first, then SMOTE, then class weighting, comparing results across all three instead of picking one blind.</p>
-        <h4>What Came Of It</h4>
-        <p>Raw text alone wasn't enough to predict outcomes reliably — that was the real finding, and it's a more honest one than pretending a single model solved it cleanly.</p>
+      <div class="case">
+        <img src="images/rad.png" alt="Title page of the published sentiment analysis research paper">
+        <div class="case-body">
+          <span class="tag">Published Research</span>
+          <h3>Sentiment Analysis on 568,000+ Reviews</h3>
+          <h4>The Problem</h4>
+          <p>We wanted to show how comments under an article actually affect whether someone reading it, as a future buyer, decides to purchase.</p>
+          <h4>What I Did</h4>
+          <p>I handled the ML side of the research — the research questions, the models, the paper — under my professor's supervision. The hardest part was class imbalance: one class (5-star) dominated the data. We tackled it with a plain baseline first, then SMOTE, then class weighting, comparing results across all three instead of picking one blind.</p>
+          <h4>What Came Of It</h4>
+          <p>Raw text alone wasn't enough to predict outcomes reliably — that was the real finding, and it's a more honest one than pretending a single model solved it cleanly.</p>
+        </div>
+        <div class="case-footer">
+          Published, International Burch University — Sarajevo, Bosnia and Herzegovina
+        </div>
       </div>
-      <div class="case-footer">
-        Published, International Burch University — Sarajevo, Bosnia and Herzegovina
-      </div>
-    </div>
 
-    <div class="case">
-      <img src="images/comparison.png" alt="Model versus baseline comparison table showing Precision at 50 results">
-      <div class="case-body">
-        <span class="tag">FlyRank ML Internship</span>
-        <h3>Content Decline Scoring</h3>
-        <h4>The Problem</h4>
-        <p>FlyRank needed a way to automatically flag which pages were losing search ranking, instead of someone manually reviewing thousands of pages by hand.</p>
-        <h4>What I Did</h4>
-        <p>I framed one page-month as one row, then built a simple baseline first: flag a page if its click-through rate was far below what its search position would predict. Before trusting that, I tested it against two signals — content staleness turned out useless, while CTR-vs-position held up. I trained a Logistic Regression model on top of that, then re-ran everything under a stricter, client-grouped split to make sure I wasn't fooling myself.</p>
-        <h4>What Came Of It</h4>
-        <p>The model beat the simple rule — Precision@50 went from 0.70 to 0.96, meaning almost every page it flagged as declining actually was. The hardest part wasn't the code, it was trusting which model was actually the right one instead of the one I assumed would work going in.</p>
+      <div class="case">
+        <img src="images/comparison.png" alt="Model versus baseline comparison table showing Precision at 50 results">
+        <div class="case-body">
+          <span class="tag">FlyRank ML Internship</span>
+          <h3>Content Decline Scoring</h3>
+          <h4>The Problem</h4>
+          <p>FlyRank needed a way to automatically flag which pages were losing search ranking, instead of someone manually reviewing thousands of pages by hand.</p>
+          <h4>What I Did</h4>
+          <p>I framed one page-month as one row, then built a simple baseline first: flag a page if its click-through rate was far below what its search position would predict. Before trusting that, I tested it against two signals — content staleness turned out useless, while CTR-vs-position held up. I trained a Logistic Regression model on top of that, then re-ran everything under a stricter, client-grouped split to make sure I wasn't fooling myself.</p>
+          <h4>What Came Of It</h4>
+          <p>The model beat the simple rule — Precision@50 went from 0.70 to 0.96, meaning almost every page it flagged as declining actually was. The hardest part wasn't the code, it was trusting which model was actually the right one instead of the one I assumed would work going in.</p>
+        </div>
+        <div class="case-footer">
+          <a href="https://github.com/EmanHrustemovic/FlyRank-AI-Intership-ML-Track-" target="_blank">View repo</a> · Full research paper in progress
+        </div>
       </div>
-      <div class="case-footer">
-        <a href="https://github.com/EmanHrustemovic/FlyRank-AI-Intership-ML-Track-" target="_blank">View repo</a> · Full research paper in progress
+    </section>
+
+    <section id="about">
+      <span class="eyebrow">Who's Behind This</span>
+      <h2>About</h2>
+      <div class="about-row">
+        <img src="images/ja.jpg" alt="Photo of Eman Hrustemović">
+        <div class="text">
+          <p>I'm a Master's student moving into ML engineering — the kind that builds the model, then checks it harder than anyone else will. My CV and LinkedIn show the research; this is where you see how I actually think through a problem, choose a model, and report the honest result instead of the flattering one.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about">
-    <span class="eyebrow">Who's Behind This</span>
-    <h2>About</h2>
-    <div class="about-row">
-      <img src="images/ja.jpg" alt="Photo of Eman Hrustemović">
-      <div class="text">
-        <p>I'm a Master's student moving into ML engineering — the kind that builds the model, then checks it harder than anyone else will. My CV and LinkedIn show the research; this is where you see how I actually think through a problem, choose a model, and report the honest result instead of the flattering one.</p>
+    <section id="contact">
+      <span class="eyebrow">Next Step</span>
+      <h2>Contact</h2>
+      <div class="contact-box">
+        <p>Review my GitHub, then reach out — I'm happy to walk through any decision in either project.</p>
+        <div class="contact-links">
+          <a class="btn primary" href="mailto:emanhrustemovic6@gmail.com">Email Me</a>
+          <a class="btn" href="https://github.com/EmanHrustemovic" target="_blank">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/eman-hrustemovic/" target="_blank">LinkedIn</a>
+        </div>
+
+        <form action="https://formspree.io/f/mvkopnbz" method="POST" style="margin-top: 32px; text-align: left; max-width: 480px; margin-left: auto; margin-right: auto;">
+          <!-- FIX 1: Povezani label i input za email -->
+          <label for="email-field" style="display:block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; margin-bottom: 6px;">Your email</label>
+          <input type="email" name="email" id="email-field" required style="width:100%; padding:10px; margin-bottom:16px; border:1px solid var(--line); font-family:'IBM Plex Sans',sans-serif;">
+          
+          <!-- FIX 1: Povezani label i textarea za message -->
+          <label for="message-field" style="display:block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; margin-bottom: 6px;">Message</label>
+          <textarea name="message" id="message-field" rows="4" required style="width:100%; padding:10px; margin-bottom:16px; border:1px solid var(--line); font-family:'IBM Plex Sans',sans-serif;"></textarea>
+          
+          <button type="submit" class="btn primary" style="cursor:pointer; border:none;">Send Message</button>
+        </form>
       </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <span class="eyebrow">Next Step</span>
-    <h2>Contact</h2>
-    <div class="contact-box">
-  <p>Review my GitHub, then reach out — I'm happy to walk through any decision in either project.</p>
-  <div class="contact-links">
-    <a class="btn primary" href="mailto:emanhrustemovic6@gmail.com">Email Me</a>
-    <a class="btn" href="https://github.com/EmanHrustemovic" target="_blank">GitHub</a>
-    <a class="btn" href="https://www.linkedin.com/in/eman-hrustemovic/" target="_blank">LinkedIn</a>
-  </div>
-
-  <form action="https://formspree.io/f/mvkopnbz" method="POST" style="margin-top: 32px; text-align: left; max-width: 480px; margin-left: auto; margin-right: auto;">
-    <label for="email-field" style="...">Your email</label>
-    <input type="email" name="email" id="email-field" required style="...">
-    
-    <label style="display:block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; margin-bottom: 6px;">Message</label>
-    <textarea name="message" rows="4" required style="width:100%; padding:10px; margin-bottom:16px; border:1px solid var(--line); font-family:'IBM Plex Sans',sans-serif;"></textarea>
-    
-    <button type="submit" class="btn primary" style="cursor:pointer; border:none;">Send Message</button>
-  </form>
-</div>
-  </section>
+    </section>
+  </main>
+  <!-- Kraj <main> taga -->
 
   <footer>
     Built with plain HTML/CSS, deployed on GitHub Pages &middot; Eman Hrustemović, 2026
   </footer>
+
   <script>
     document.querySelector('form').addEventListener('submit', function(e) {
       const btn = this.querySelector('button[type="submit"]');
