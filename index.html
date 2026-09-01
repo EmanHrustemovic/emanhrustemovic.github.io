@@ -20,7 +20,7 @@
     --ink: #1B1F1D;
     --paper: #F6F5F1;
     --primary: #2F4858;
-    --accent: #2E5E43; /* Pojačan kontrast sa WCAG standardom */
+    --accent: #3E7C59;
     --line: #D9D6CC;
   }
 
@@ -243,12 +243,28 @@
     flex-wrap: wrap;
   }
 
+  .form-label {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    margin-bottom: 6px;
+    text-align: left;
+  }
+
+  .form-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid var(--line);
+    font-family: 'IBM Plex Sans', sans-serif;
+  }
+
   footer {
     text-align: center;
     padding: 40px 24px;
     font-family: 'IBM Plex Mono', monospace;
     font-size: 11px;
-    color: #595950;
+    color: #9a9a90;
     border-top: 1px solid var(--line);
   }
 </style>
@@ -267,14 +283,13 @@
   <header class="hero" id="top">
     <div class="mark">EH</div>
     <h1>I ship models, then I try to break them before anyone else does.</h1>
-    <p class="sub">I build machine learning models that predict and analyze data — published research and a working AI project are the proof.</p>
+    <p class="sub">I build machine learning models that predict and analyze data  — published research and a working AI project are the proof.</p>
     <div class="cta-row">
       <a class="btn primary" href="#case-studies">View Case Studies</a>
       <a class="btn" href="https://github.com/EmanHrustemovic" target="_blank">GitHub</a>
     </div>
   </header>
 
-  <!-- FIX 2: Početak <main> taga koji obavija primarni sadržaj -->
   <main>
     <section id="case-studies">
       <span class="eyebrow">Proof</span>
@@ -338,25 +353,21 @@
         </div>
 
         <form action="https://formspree.io/f/mvkopnbz" method="POST" style="margin-top: 32px; text-align: left; max-width: 480px; margin-left: auto; margin-right: auto;">
-          <!-- FIX 1: Povezani label i input za email -->
-          <label for="email-field" style="display:block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; margin-bottom: 6px;">Your email</label>
-          <input type="email" name="email" id="email-field" required style="width:100%; padding:10px; margin-bottom:16px; border:1px solid var(--line); font-family:'IBM Plex Sans',sans-serif;">
-          
-          <!-- FIX 1: Povezani label i textarea za message -->
-          <label for="message-field" style="display:block; font-family: 'IBM Plex Mono', monospace; font-size: 12px; margin-bottom: 6px;">Message</label>
-          <textarea name="message" id="message-field" rows="4" required style="width:100%; padding:10px; margin-bottom:16px; border:1px solid var(--line); font-family:'IBM Plex Sans',sans-serif;"></textarea>
-          
+          <label for="email-field" class="form-label">Your email</label>
+          <input type="email" name="email" id="email-field" required class="form-field">
+
+          <label for="message-field" class="form-label">Message</label>
+          <textarea name="message" id="message-field" rows="4" required class="form-field"></textarea>
+
           <button type="submit" class="btn primary" style="cursor:pointer; border:none;">Send Message</button>
         </form>
       </div>
     </section>
   </main>
-  <!-- Kraj <main> taga -->
 
   <footer>
     Built with plain HTML/CSS, deployed on GitHub Pages &middot; Eman Hrustemović, 2026
   </footer>
-
   <script>
     document.querySelector('form').addEventListener('submit', function(e) {
       const btn = this.querySelector('button[type="submit"]');
